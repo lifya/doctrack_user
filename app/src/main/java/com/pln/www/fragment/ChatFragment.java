@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.pln.www.R;
-import com.pln.www.TambahDokumentActivity;
 import com.pln.www.adapter.MyAdapter;
 
 /**
@@ -35,13 +34,14 @@ public class ChatFragment extends Fragment {
     protected RecyclerView mRecyclerView;
     protected MyAdapter mAdapter;
     protected RecyclerView.LayoutManager mLayoutManager;
-    protected String[] mDataset, mDataset2, mDataset4;
+    protected String[] mDataset, mDataset2, mDataset4, mDataset5;
     protected int[] mDataset3;
 
-    int [] icon = {R.drawable.ic_perm_identity_black_24dp, R.drawable.ic_perm_identity_black_24dp,R.drawable.ic_perm_identity_black_24dp,R.drawable.ic_perm_identity_black_24dp,R.drawable.ic_perm_identity_black_24dp};
+    int [] icon = {R.mipmap.on_process, R.mipmap.on_process,R.mipmap.complete,R.mipmap.complete,R.mipmap.complete};
     String [] judul = {"Studi UKL-UPL Pembangunan SUT 70 KV Dukong- Manggar Tanjung batu Itam dan GI...","Studi UKL-UPL Pembangunan SUT 70 KV Dukong- Manggar Tanjung batu Itam dan GI...","Studi UKL-UPL Pembangunan SUT 70 KV Dukong- Manggar Tanjung batu Itam dan GI...","Studi UKL-UPL Pembangunan SUT 70 KV Dukong- Manggar Tanjung batu Itam dan GI...","Studi UKL-UPL Pembangunan SUT 70 KV Dukong- Manggar Tanjung batu Itam dan GI..."};
-    String [] deskripsi = {"PT. Adi Banuwa","PT. Adi Banuwa","PT. Adi Banuwa","PT. Adi Banuwa","PT. Adi Banuwa"};
+    String [] konsultan = {"PT. Adi Banuwa","PT. Adi Banuwa","PT. Adi Banuwa","PT. Adi Banuwa","PT. Adi Banuwa"};
     String [] tanggal = {"12 Januari 2017", "12 Januari 2018","12 Februari 1998","12 Februari 1998","12 Februari 1998"};
+    String [] waktu = {"13.30", "14.40", "15.50", "16.60", "15.00"};
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -75,19 +75,11 @@ public class ChatFragment extends Fragment {
         }
         setRecyclerViewLayoutManager(mCurrentLayoutManagerType);
 
-        mAdapter = new MyAdapter(mDataset,mDataset2,mDataset4,mDataset3);
+        mAdapter = new MyAdapter(mDataset,mDataset2,mDataset4, mDataset5,mDataset3);
         // Set CustomAdapter as the adapter for RecyclerView.
         mRecyclerView.setAdapter(mAdapter);
         // END_INCLUDE(initializeRecyclerView)
 
-        FloatingActionButton fabs = (FloatingActionButton)rootView.findViewById(R.id.fabs);
-        fabs.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), TambahDokumentActivity.class);
-                startActivity(intent);
-            }
-        });
         return rootView;
     }
 
@@ -135,13 +127,15 @@ public class ChatFragment extends Fragment {
      */
     private void initDataset() {
         mDataset = new String[judul.length];
-        mDataset2 = new String[deskripsi.length];
+        mDataset2 = new String[konsultan.length];
         mDataset4 = new String[tanggal.length];
+        mDataset5 = new String[waktu.length];
         mDataset3 = new int[icon.length];
         for (int i = 0; i < judul.length; i++) {
             mDataset[i] = judul[i];
-            mDataset2[i] = deskripsi[i];
+            mDataset2[i] = konsultan[i];
             mDataset4[i] = tanggal[i];
+            mDataset5[i] = waktu[i];
             mDataset3[i] = icon[i];
         }
     }

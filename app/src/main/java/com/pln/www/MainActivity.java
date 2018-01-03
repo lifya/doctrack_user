@@ -1,5 +1,6 @@
 package com.pln.www;
 
+import android.content.Intent;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
@@ -13,6 +14,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -20,34 +23,6 @@ public class MainActivity extends AppCompatActivity
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
     private ViewPager viewPage1;
-
-   /* private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
-
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            Fragment fragment = null;
-            switch (item.getItemId()) {
-                case R.id.navigation_home:
-                    fragment = new MainFragment();
-                    break;
-
-                case R.id.navigation_dashboard:
-                    fragment = new ChatFragment();
-                    break;
-
-                case R.id.navigation_notifications:
-                    fragment = new FriendFragment();
-                    break;
-            }
-            final FragmentTransaction transaction = getSupportFragmentManager().
-                    beginTransaction();
-            transaction.replace(R.id.content, fragment);
-            transaction.commit();
-            return true;
-        }
-
-    };*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,12 +98,20 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_about) {
 
         } else if (id == R.id.nav_logout) {
+            FirebaseAuth.getInstance().signOut();
+            sendtoStart();
 
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void sendtoStart(){
+        Intent startIntent = new Intent(MainActivity.this, LoginActivity.class);
+        startActivity(startIntent);
+        finish();
     }
 
 }
