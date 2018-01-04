@@ -20,7 +20,7 @@ import com.pln.www.R;
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private static final String TAG = "MyAdapter";
 
-    private String[] mDataSet,mDataSet2, mDataSet4;
+    private String[] mDataSet,mDataSet2, mDataSet4, mDataSet5;
     private int[] mDataSet3;
 
     // BEGIN_INCLUDE(recyclerViewSampleViewHolder)
@@ -28,7 +28,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
      * Provide a reference to the type of views that you are using (custom ViewHolder)
      */
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private final TextView textView,textView2,textView3;
+        private final TextView textView,textView2,textView3, textView4;
         private final ImageView icon;
 
         public ViewHolder(View v) {
@@ -41,9 +41,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                 }
             });
             textView = (TextView) v.findViewById(R.id.judul);
-            textView2 = (TextView) v.findViewById(R.id.deskripsi);
+            textView2 = (TextView) v.findViewById(R.id.konsultan);
             textView3 = (TextView) v.findViewById(R.id.tanggal);
-            icon = (ImageView) v.findViewById(R.id.thumbnail);
+            textView4 = (TextView) v.findViewById(R.id.waktu);
+            icon = (ImageView) v.findViewById(R.id.status);
         }
 
         public TextView getTextView() {
@@ -54,6 +55,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         }
         public TextView getTextView3() {
             return textView3;
+        }
+        public TextView getTextView4() {
+            return textView4;
         }
         public ImageView getImageView() {
             return icon;
@@ -66,11 +70,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
      *
      * @param dataSet String[] containing the data to populate views to be used by RecyclerView.
      */
-    public MyAdapter(String[] dataSet,String[] dataSet2,String[] dataSet4, int[] dataSet3) {
+    public MyAdapter(String[] dataSet,String[] dataSet2,String[] dataSet4, String[] dataSet5,int[] dataSet3) {
         this.mDataSet = dataSet;
         this.mDataSet2 = dataSet2;
         this.mDataSet3 = dataSet3;
         this.mDataSet4 = dataSet4;
+        this.mDataSet5 = dataSet5;
     }
 
     // BEGIN_INCLUDE(recyclerViewOnCreateViewHolder)
@@ -96,6 +101,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         viewHolder.getTextView().setText(mDataSet[position]);
         viewHolder.getTextView2().setText(mDataSet2[position]);
         viewHolder.getTextView3().setText(mDataSet4[position]);
+        viewHolder.getTextView4().setText(mDataSet5[position]);
         viewHolder.getImageView().setImageResource(mDataSet3[position]);
     }
     // END_INCLUDE(recyclerViewOnBindViewHolder)

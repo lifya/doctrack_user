@@ -5,15 +5,15 @@
         <item
             android:id="@+id/nav_beranda"
             android:icon="@drawable/ic_action_beranda"
-            android:title="Beranda" />
-        <item
-            android:id="@+id/nav_help"
-            android:icon="@drawable/ic_action_help"
-            android:title="Help" />
+            android:title="Home" />
         <item
             android:id="@+id/nav_about"
             android:icon="@drawable/ic_action_about"
             android:title="About" />
+        <item
+            android:id="@+id/nav_setting"
+            android:icon="@drawable/ic_action_setting"
+            android:title="Setting" />
         <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/ic_action_logout"
