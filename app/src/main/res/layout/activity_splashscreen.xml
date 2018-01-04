@@ -11,7 +11,7 @@
 
     <ImageView
         android:id="@+id/splashscreen"
-        android:layout_width="200dp"
+        android:layout_width="250dp"
         android:layout_height="100dp"
         app:srcCompat="@mipmap/logo_white"
         tools:layout_editor_absoluteX="76dp"

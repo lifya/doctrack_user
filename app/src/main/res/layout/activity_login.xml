@@ -55,7 +55,7 @@
         android:layout_above="@+id/etUsername"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="19dp"
-        android:text="Gunakan Email dan Password yang telah diberitahu"
+        android:text="Gunakan Email dan Password Pegawai"
         android:textColor="#FFFFFFFF" />
 
 </RelativeLayout>

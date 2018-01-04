@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.pln.www.fragment.AboutFragment;
 import com.pln.www.fragment.ChatFragment;
+import com.pln.www.fragment.MateriFragment;
 import com.pln.www.fragment.SettingFragment;
 
 import java.util.Timer;
