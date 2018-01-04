@@ -14,9 +14,7 @@ import android.view.ViewGroup;
 import com.pln.www.R;
 import com.pln.www.adapter.MyAdapter;
 
-/**
- * Created by ACHI on 27/08/2017.
- */
+
 
 public class ChatFragment extends Fragment {
     private static final String TAG = "RecyclerViewFragment";

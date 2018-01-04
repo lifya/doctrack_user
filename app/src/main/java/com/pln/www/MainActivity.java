@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_beranda) {
 
             // Handle the camera action
-        }  else if (id ==  R.id.nav_help) {
+        }  else if (id ==  R.id.nav_setting) {
 
         } else if (id == R.id.nav_about) {
 

@@ -18,7 +18,7 @@ import com.pln.www.R;
  * Use the {@link AboutFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AboutFragment extends Fragment {
+public class AboutFragment extends Fragment  {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -79,12 +79,8 @@ public class AboutFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
+
+
     }
 
     @Override
@@ -107,4 +103,5 @@ public class AboutFragment extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
 }
