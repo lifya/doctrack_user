@@ -7,12 +7,12 @@
     tools:context="com.pln.www.fragment.SettingFragment">
 
     <EditText
-        android:id="@+id/etUsername"
+        android:id="@+id/etOldPassword"
         android:layout_width="250dp"
         android:layout_height="50dp"
-        android:layout_alignLeft="@+id/etPassword"
+        android:layout_alignLeft="@+id/etNewPassword"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/etPassword"
+        android:layout_alignStart="@+id/etNewPassword"
         android:layout_marginTop="32dp"
         android:drawableLeft="@drawable/ic_action_oldpassword"
         android:hint="Old Password"
@@ -22,10 +22,10 @@
         android:textSize="14dp" />
 
     <EditText
-        android:id="@+id/etPassword"
+        android:id="@+id/etNewPassword"
         android:layout_width="250dp"
         android:layout_height="50dp"
-        android:layout_below="@+id/etUsername"
+        android:layout_below="@+id/etOldPassword"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="14dp"
         android:drawableLeft="@drawable/ic_action_oldpassword"
@@ -36,12 +36,12 @@
         android:textSize="14dp" />
 
     <EditText
-        android:id="@+id/repassword"
+        android:id="@+id/etReNewPassword"
         android:layout_width="250dp"
         android:layout_height="50dp"
-        android:layout_alignLeft="@+id/etPassword"
-        android:layout_alignStart="@+id/etPassword"
-        android:layout_below="@+id/etPassword"
+        android:layout_alignLeft="@+id/etNewPassword"
+        android:layout_alignStart="@+id/etNewPassword"
+        android:layout_below="@+id/etNewPassword"
         android:layout_marginTop="15dp"
         android:drawableLeft="@drawable/ic_action_oldpassword"
         android:hint="Re-enter New Password"
@@ -51,12 +51,12 @@
         android:textSize="14dp" />
 
     <Button
-        android:id="@+id/bLogin"
+        android:id="@+id/bUpdate"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/repassword"
-        android:layout_alignStart="@+id/repassword"
-        android:layout_below="@+id/repassword"
+        android:layout_alignLeft="@+id/etReNewPassword"
+        android:layout_alignStart="@+id/etReNewPassword"
+        android:layout_below="@+id/etReNewPassword"
         android:layout_marginTop="33dp"
         android:hint="Change Password"
         android:textColorHint="#000000" />

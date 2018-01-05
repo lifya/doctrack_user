@@ -1,13 +1,31 @@
 package com.pln.www.fragment;
 
+import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.EmailAuthCredential;
+import com.google.firebase.auth.EmailAuthProvider;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.pln.www.HomeActivity;
+import com.pln.www.LoginActivity;
+import com.pln.www.MainActivity;
 import com.pln.www.R;
 
 /**
@@ -18,7 +36,7 @@ import com.pln.www.R;
  * Use the {@link SettingFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SettingFragment extends Fragment {
+public class SettingFragment extends Fragment implements View.OnClickListener{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -27,6 +45,12 @@ public class SettingFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private EditText etOldPass, etNewPass, etReNewPass;
+    private Button bChangePass;
+    private FirebaseAuth mAuth;
+    private FirebaseUser currentUser;
+    private ProgressDialog progressDialog;
+    private AuthCredential authCredential;
 
     private OnFragmentInteractionListener mListener;
 
@@ -59,13 +83,94 @@ public class SettingFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
+    }
+
+    public void change_password(){
+        String OldPass = etOldPass.getText().toString().trim();
+        String NewPass = etNewPass.getText().toString().trim();
+        String ReNewPass = etReNewPass.getText().toString().trim();
+
+        if(TextUtils.isEmpty(OldPass)){
+            Toast.makeText(getActivity(), "Please Enter Old Password", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if(TextUtils.isEmpty(NewPass)){
+            Toast.makeText(getActivity(), "Please Enter New Password", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if(TextUtils.isEmpty(ReNewPass)){
+            Toast.makeText(getActivity(), "Please Re-Enter New Password", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        onWait();
+
+        if(NewPass.equals(ReNewPass)){
+            final String getEmail = currentUser.getEmail();
+            authCredential = EmailAuthProvider.getCredential(getEmail,OldPass);
+            currentUser.reauthenticate(authCredential).addOnCompleteListener((Activity) getContext(), new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if(task.isSuccessful()){
+                        currentUser.updatePassword(etNewPass.getText().toString()).addOnCompleteListener((Activity) getContext(), new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if(task.isSuccessful()){
+                                    progressDialog.dismiss();
+                                    Toast.makeText(getActivity(), "Password Updated", Toast.LENGTH_LONG).show();
+                                    Thread thread = new Thread(){
+                                        @Override
+                                        public void run(){
+                                            try{
+                                                Thread.sleep(3500);
+                                                FirebaseAuth.getInstance().signOut();
+                                                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                                                startActivity(intent);
+                                            }
+                                            catch (Exception e){
+                                                e.printStackTrace();
+                                            }
+                                        }
+                                    };
+                                    thread.start();
+                                }
+                                else {
+                                    progressDialog.dismiss();
+                                    Toast.makeText(getActivity(), "At Least 6 Characters", Toast.LENGTH_LONG).show();
+                                    return;
+                                }
+                            }
+                        });
+                    }
+                    else {
+                        progressDialog.dismiss();
+                        Toast.makeText(getActivity(), "Failed to Get Your Current Email and Password", Toast.LENGTH_LONG).show();
+                        return;
+                    }
+                }
+            });
+        }
+        else{
+            Toast.makeText(getActivity(), "Wrong New Password", Toast.LENGTH_LONG);
+            return;
+        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_setting, container, false);
+        View v = inflater.inflate(R.layout.fragment_setting, container, false);
+
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        etOldPass = (EditText) v.findViewById(R.id.etOldPassword);
+        etNewPass = (EditText) v.findViewById(R.id.etNewPassword);
+        etReNewPass = (EditText) v.findViewById(R.id.etReNewPassword);
+        bChangePass = (Button) v.findViewById(R.id.bUpdate);
+        bChangePass.setOnClickListener(this);
+
+        return v;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -84,6 +189,19 @@ public class SettingFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(v == bChangePass) {
+            change_password();
+        }
+    }
+
+    public void onWait(){
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Please Wait");
+        progressDialog.show();
     }
 
     /**

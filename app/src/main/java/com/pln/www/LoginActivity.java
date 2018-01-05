@@ -32,9 +32,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         mAuth = FirebaseAuth.getInstance();
 
-        etUsername = (EditText) findViewById(R.id.etUsername);
-        etPassword = (EditText) findViewById(R.id.etPassword);
-        bLogin = (Button) findViewById(R.id.bLogin);
+        etUsername = (EditText) findViewById(R.id.etOldPassword);
+        etPassword = (EditText) findViewById(R.id.etNewPassword);
+        bLogin = (Button) findViewById(R.id.bUpdate);
         progressDialog = new ProgressDialog(this);
         bLogin.setOnClickListener(this);
     }
@@ -84,10 +84,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         progressDialog.dismiss();
                         if(task.isSuccessful()){
-                            finish();
+                            progressDialog.dismiss();
                             startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                         }
                         else{
+                            progressDialog.dismiss();
                             Toast.makeText(LoginActivity.this, "Failed to login", Toast.LENGTH_LONG).show();
                             return;
                         }

@@ -9,12 +9,12 @@
     tools:context="com.pln.www.LoginActivity">
 
     <EditText
-        android:id="@+id/etUsername"
+        android:id="@+id/etOldPassword"
         android:layout_width="250dp"
         android:layout_height="50dp"
-        android:layout_alignBottom="@+id/etPassword"
-        android:layout_alignLeft="@+id/etPassword"
-        android:layout_alignStart="@+id/etPassword"
+        android:layout_alignBottom="@+id/etNewPassword"
+        android:layout_alignLeft="@+id/etNewPassword"
+        android:layout_alignStart="@+id/etNewPassword"
         android:layout_marginBottom="55dp"
         android:drawableLeft="@drawable/ic_action_user"
         android:hint="Email"
@@ -24,10 +24,10 @@
         android:textSize="14dp" />
 
     <EditText
-        android:id="@+id/etPassword"
+        android:id="@+id/etNewPassword"
         android:layout_width="250dp"
         android:layout_height="50dp"
-        android:layout_above="@+id/bLogin"
+        android:layout_above="@+id/bUpdate"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="17dp"
         android:drawableLeft="@drawable/ic_action_pass"
@@ -38,21 +38,21 @@
         android:textSize="14dp" />
 
     <Button
-        android:id="@+id/bLogin"
+        android:id="@+id/bUpdate"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="29dp"
         android:hint="Sign in"
         android:textColorHint="#000000"
         android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/etPassword"
-        android:layout_alignStart="@+id/etPassword" />
+        android:layout_alignLeft="@+id/etNewPassword"
+        android:layout_alignStart="@+id/etNewPassword" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/etUsername"
+        android:layout_above="@+id/etOldPassword"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="19dp"
         android:text="Gunakan Email dan Password yang telah diberitahu"
