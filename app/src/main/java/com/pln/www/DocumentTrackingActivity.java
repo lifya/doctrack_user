@@ -2,8 +2,6 @@ package com.pln.www;
 
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
@@ -22,7 +20,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.pln.www.fragment.ChatFragment;
-import com.pln.www.fragment.Detail_Proses_Fragment;
 
 public class DocumentTrackingActivity extends AppCompatActivity {
 
