@@ -18,11 +18,7 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity
-            android:name=".HomeActivity"
-            android:label="DocTrack"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <!-- <activity -->
         <!-- android:name=".MainActivity" -->
@@ -45,6 +41,18 @@
         <!-- </intent-filter> -->
         <!-- </activity> -->
 
+        <activity
+            android:name=".DocumentTrackingActivity"
+            android:label="Daftar Dokument"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MateriActivity"
+            android:label="Materi"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".BerandaActivity"
+            android:label="DocTrack PLN"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

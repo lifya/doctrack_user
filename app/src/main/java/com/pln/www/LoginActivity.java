@@ -50,7 +50,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     public void sendtoStart(){
-        Intent startIntent = new Intent(LoginActivity.this, HomeActivity.class);
+        Intent startIntent = new Intent(LoginActivity.this, BerandaActivity.class);
         startActivity(startIntent);
         finish();
     }
@@ -85,7 +85,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         progressDialog.dismiss();
                         if(task.isSuccessful()){
                             progressDialog.dismiss();
-                            startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                            startActivity(new Intent(getApplicationContext(), BerandaActivity.class));
                         }
                         else{
                             progressDialog.dismiss();

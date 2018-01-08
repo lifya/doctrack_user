@@ -23,9 +23,7 @@ import com.google.firebase.auth.EmailAuthCredential;
 import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.pln.www.HomeActivity;
 import com.pln.www.LoginActivity;
-import com.pln.www.MainActivity;
 import com.pln.www.R;
 
 /**

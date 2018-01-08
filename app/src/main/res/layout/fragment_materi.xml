@@ -1,17 +1,19 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="10dp"
-    android:orientation="vertical"
-    android:layout_marginRight="10dp"
-    android:layout_marginLeft="10dp"
-    tools:context="com.pln.www.fragment.MateriFragment">
+    android:layout_height="match_parent"
+    android:paddingRight="3dp"
+    android:scrollbarThumbVertical="@drawable/vertical_scrollview_bg"
+    android:scrollbarTrackVertical="@drawable/vertical_scrollview_line"
+    tools:context="com.pln.www.fragment.MateriFragment"
+    android:background="#ffffff">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="none">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -295,6 +297,6 @@
                 android:singleLine="true"/>
 
         </LinearLayout>
-    </ScrollView>
+    </LinearLayout>
 
-</LinearLayout>
+</ScrollView>
