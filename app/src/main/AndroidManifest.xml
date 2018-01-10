@@ -52,7 +52,8 @@
         <activity
             android:name=".BerandaActivity"
             android:label="DocTrack PLN"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Detail_Proses_Activity"></activity>
     </application>
 
 </manifest>
