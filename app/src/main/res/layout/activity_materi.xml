@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.pln.www.MateriActivity">
+    tools:context="com.pln.www.DocumentTrackingActivity">
+
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
@@ -22,8 +23,21 @@
             android:layout_weight="1"
             android:background="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|enterAlways"
-            app:popupTheme="@style/AppTheme.PopupOverlay"
-            app:title="@string/app_name">
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/ic_arrow_back"
+                android:id="@+id/back"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Materi"
+                android:textSize="20dp"
+                android:layout_gravity="center"
+                android:gravity="bottom"
+                android:textColor="#ffffff"/>
 
         </android.support.v7.widget.Toolbar>
 
@@ -53,6 +67,5 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-
 
 </android.support.design.widget.CoordinatorLayout>

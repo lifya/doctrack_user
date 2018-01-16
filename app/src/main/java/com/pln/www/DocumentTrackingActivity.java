@@ -17,11 +17,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.pln.www.fragment.ChatFragment;
 
-public class DocumentTrackingActivity extends AppCompatActivity {
+public class DocumentTrackingActivity extends AppCompatActivity  implements View.OnClickListener {
 
 
 
@@ -39,20 +40,24 @@ public class DocumentTrackingActivity extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
-    CardView cardView;
+    ImageView image1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_document_tracking);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        image1 = (ImageView) findViewById(R.id.back);
+        image1.setOnClickListener(this);
+
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
+
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
@@ -60,6 +65,7 @@ public class DocumentTrackingActivity extends AppCompatActivity {
 
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
+
 
 
     }
@@ -100,6 +106,14 @@ public class DocumentTrackingActivity extends AppCompatActivity {
         Intent startIntent = new Intent(DocumentTrackingActivity.this, BerandaActivity.class);
         startActivity(startIntent);
         finish();
+    }
+
+    @Override
+    public void onClick(View view) {
+       if (image1 == view) {
+           BerandaActivity home = new BerandaActivity();
+           sentoHome();
+       }
     }
 
     public static class PlaceholderFragment extends Fragment {

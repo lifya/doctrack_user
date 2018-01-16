@@ -18,12 +18,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.pln.www.fragment.Materi2Fragment;
 import com.pln.www.fragment.MateriFragment;
 
-public class MateriActivity extends AppCompatActivity {
+public class MateriActivity extends AppCompatActivity implements View.OnClickListener{
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -39,14 +40,18 @@ public class MateriActivity extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
+    ImageView image1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_materi);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        image1 = (ImageView) findViewById(R.id.back);
+        image1.setOnClickListener(this);
+
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -97,6 +102,15 @@ public class MateriActivity extends AppCompatActivity {
         startActivity(startIntent);
         finish();
     }
+
+    @Override
+    public void onClick(View view) {
+        if (image1 == view) {
+            BerandaActivity home = new BerandaActivity();
+            sentoHome();
+        }
+    }
+
     /**
      * A placeholder fragment containing a simple view.
      */
