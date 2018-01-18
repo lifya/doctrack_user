@@ -1,10 +1,8 @@
-package com.pln.www;
+package com.pln.www.activity;
 
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.Toolbar;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -20,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.pln.www.R;
 import com.pln.www.fragment.ChatFragment;
 
 public class DocumentTrackingActivity extends AppCompatActivity  implements View.OnClickListener {

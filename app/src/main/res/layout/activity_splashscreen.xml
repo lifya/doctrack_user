@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/ic_menu_camera"
 
-    tools:context="com.pln.www.Splashscreen">
+    tools:context="com.pln.www.activity.Splashscreen">
 
     <ImageView
         android:id="@+id/splashscreen"

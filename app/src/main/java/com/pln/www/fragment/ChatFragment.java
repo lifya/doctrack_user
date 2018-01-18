@@ -1,10 +1,7 @@
 package com.pln.www.fragment;
 
-import android.content.Intent;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.pln.www.R;
-import com.pln.www.adapter.ItemModel;
+import com.pln.www.model.ItemModel;
 import com.pln.www.adapter.MyAdapter;
 
 import java.util.ArrayList;

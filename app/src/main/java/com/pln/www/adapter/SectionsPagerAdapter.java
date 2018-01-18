@@ -1,4 +1,4 @@
-package com.pln.www;
+package com.pln.www.adapter;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -9,6 +9,7 @@ import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ImageSpan;
 
+import com.pln.www.R;
 import com.pln.www.fragment.ChatFragment;
 
 

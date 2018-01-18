@@ -1,4 +1,4 @@
-package com.pln.www;
+package com.pln.www.activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -16,6 +16,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.pln.www.R;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
 

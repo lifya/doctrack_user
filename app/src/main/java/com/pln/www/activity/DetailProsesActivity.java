@@ -1,9 +1,11 @@
-package com.pln.www;
+package com.pln.www.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class Detail_Proses_Activity extends AppCompatActivity {
+import com.pln.www.R;
+
+public class DetailProsesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,10 +1,12 @@
-package com.pln.www;
+package com.pln.www.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
+
+import com.pln.www.R;
 
 public class Splashscreen extends AppCompatActivity {
     private int SLEEP_TIMER = 3;

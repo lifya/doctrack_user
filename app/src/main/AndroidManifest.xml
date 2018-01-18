@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ikon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Splashscreen">
+        <activity android:name=".activity.Splashscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".activity.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <!-- <activity -->
@@ -42,16 +42,16 @@
         <!-- </activity> -->
 
         <activity
-            android:name=".DocumentTrackingActivity"
+            android:name=".activity.DocumentTrackingActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".MateriActivity"
+            android:name=".activity.MateriActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".BerandaActivity"
+            android:name=".activity.BerandaActivity"
             android:label="DocTrack PLN"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Detail_Proses_Activity"></activity>
+        <activity android:name=".activity.DetailProsesActivity"></activity>
     </application>
 
 </manifest>

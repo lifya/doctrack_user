@@ -1,4 +1,4 @@
-package com.pln.www;
+package com.pln.www.adapter;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import com.pln.www.R;
 
 /**
  * Created by Lifya Fitriani on 12/27/2017.
