@@ -19,11 +19,10 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/etUsername"
-            android:layout_centerHorizontal="true"
             android:layout_marginBottom="16dp"
-            android:text="Gunakan Username dan Password Pegawai"
+            android:text="Gunakan Email dan Password Pegawai"
             android:textSize="12dp"
+            android:textStyle="bold"
             android:textColor="#FFFFFFFF" />
 
         <EditText
@@ -41,7 +40,6 @@
             android:id="@+id/etPassword"
             android:layout_width="250dp"
             android:layout_height="50dp"
-            android:layout_marginBottom="10dp"
             android:drawableLeft="@drawable/ic_action_pass"
             android:hint="Password"
             android:inputType="textPassword"
@@ -53,7 +51,8 @@
             android:id="@+id/bLogin"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="40dp"
+            android:layout_marginTop="20dp"
             android:hint="Sign in"
             android:textSize="16dp"
             android:textColorHint="#000000" />
