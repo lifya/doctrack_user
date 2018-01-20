@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -25,6 +26,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private Button bLogin;
     private EditText etUsername, etPassword;
     private ProgressDialog progressDialog;
+    private TextView fpass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +34,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_login);
 
         mAuth = FirebaseAuth.getInstance();
+        progressDialog = new ProgressDialog(this);
 
         etUsername = (EditText) findViewById(R.id.etOldPassword);
         etPassword = (EditText) findViewById(R.id.etNewPassword);
-        bLogin = (Button) findViewById(R.id.bUpdate);
-        progressDialog = new ProgressDialog(this);
+        bLogin = (Button) findViewById(R.id.bLogin);
         bLogin.setOnClickListener(this);
+      //  progressDialog = new ProgressDialog(this);
+
+
+        fpass = (TextView) findViewById(R.id.fpass);
+        fpass.setOnClickListener(this);
     }
 
     @Override
@@ -102,5 +109,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if(v == bLogin){
             userLogin();
         }
+        else if (v == fpass) {
+            RessetPasswordActivity home = new RessetPasswordActivity();
+            sentoReset();
+        }
+    }
+
+    private void sentoReset() {
+            Intent startIntent = new Intent(LoginActivity.this, RessetPasswordActivity.class);
+            startActivity(startIntent);
+            finish();
     }
 }
