@@ -147,10 +147,10 @@ public class MateriActivity extends AppCompatActivity implements View.OnClickLis
             // Return a PlaceholderFragment (defined as a static inner class below).
             switch (position) {
                 case 0 :
-                    MateriFragment amdalFragment = new MateriFragment();
+                    Materi2Fragment amdalFragment = new Materi2Fragment();
                     return amdalFragment;
                 case 1 :
-                    Materi2Fragment uklFragment = new Materi2Fragment();
+                    MateriFragment uklFragment = new MateriFragment();
                     return uklFragment;
             }
             return null;

@@ -22,13 +22,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:text="Document Tracking"
+        android:text="Nama Pegawai"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="www.pln.co.id" />
+        android:text="Email Pegawai" />
 
 </LinearLayout>

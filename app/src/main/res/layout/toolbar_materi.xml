@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#1b9fe1"
+    android:id="@+id/toolbar"
+    layout_scrollFlags="scroll|enterAlways"
+    popupTheme="@style/AppTheme.PopupOverlay">
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/ic_arrow_back"
+        android:id="@+id/back"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Materi Pekerjaan"
+        android:textSize="20dp"
+        android:layout_marginLeft="30dp"
+        android:textStyle="bold"
+        android:layout_gravity="left"
+        android:textColor="#ffffff"/>
+
+</android.support.v7.widget.Toolbar>

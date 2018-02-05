@@ -19,8 +19,9 @@
         android:layout_height="wrap_content"
         android:text="Detail Proses"
         android:textSize="20dp"
-        android:layout_gravity="center"
-        android:gravity="bottom"
+        android:layout_marginLeft="30dp"
+        android:textStyle="bold"
+        android:layout_gravity="left"
         android:textColor="#ffffff"/>
 
 </android.support.v7.widget.Toolbar>

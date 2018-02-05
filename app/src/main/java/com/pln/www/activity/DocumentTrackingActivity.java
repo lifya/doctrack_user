@@ -24,20 +24,8 @@ import com.pln.www.fragment.ChatFragment;
 public class DocumentTrackingActivity extends AppCompatActivity  implements View.OnClickListener {
 
 
-
-    /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
-     */
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
-    /**
-     * The {@link ViewPager} that will host the section contents.
-     */
     private ViewPager mViewPager;
     ImageView image1;
 
@@ -78,7 +66,7 @@ public class DocumentTrackingActivity extends AppCompatActivity  implements View
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_document_tracking, menu);
+
         return true;
     }
 
@@ -90,9 +78,9 @@ public class DocumentTrackingActivity extends AppCompatActivity  implements View
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_search) {
-            return true;
-        }
+//        if (id == R.id.action_search) {
+//            return true;
+//        }
 
         return super.onOptionsItemSelected(item);
     }

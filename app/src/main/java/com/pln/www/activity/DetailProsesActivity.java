@@ -10,6 +10,6 @@ public class DetailProsesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail__proses_);
+        setContentView(R.layout.activity_detail_proses_);
     }
 }

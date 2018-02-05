@@ -17,7 +17,7 @@
         android:text="V.1.0.0"
         android:textAlignment="center"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="30dp" />
+        android:textSize="15dp" />
 
     <ImageView
         android:id="@+id/imageView3"

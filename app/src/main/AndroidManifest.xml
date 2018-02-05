@@ -17,9 +17,9 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".activity.LoginActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+        <!--<activity-->
+            <!--android:name=".activity.LoginActivity"-->
+            <!--android:theme="@style/AppTheme.NoActionBar" />-->
 
         <activity
             android:name=".activity.DocumentTrackingActivity"
@@ -31,8 +31,8 @@
 
         <activity
             android:name=".activity.BerandaActivity"
-            android:label="DocTrack PLN"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:label=""/>
 
         <activity android:name=".activity.DetailProsesActivity" />
 

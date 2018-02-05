@@ -39,8 +39,7 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@mipmap/ic_1"
-                    android:paddingRight="-25dp"/>
+                    android:src="@mipmap/ic_1"/>
             </FrameLayout>
             <TextView
                 android:layout_width="match_parent"
@@ -67,8 +66,7 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@mipmap/ic_2"
-                    android:paddingRight="-25dp"/>
+                    android:src="@mipmap/ic_2"/>
             </FrameLayout>
             <TextView
                 android:layout_width="match_parent"
@@ -95,8 +93,7 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@mipmap/ic_3"
-                    android:paddingRight="-25dp"/>
+                    android:src="@mipmap/ic_3"/>
             </FrameLayout>
             <TextView
                 android:layout_width="match_parent"
@@ -137,8 +134,7 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@mipmap/ic_4"
-                    android:paddingRight="-25dp"/>
+                    android:src="@mipmap/ic_4"/>
             </FrameLayout>
             <TextView
                 android:layout_width="match_parent"
@@ -166,8 +162,7 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@mipmap/ic_5"
-                    android:paddingRight="-25dp"/>
+                    android:src="@mipmap/ic_5"/>
             </FrameLayout>
             <TextView
                 android:layout_width="match_parent"
@@ -195,8 +190,7 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@mipmap/ic_6"
-                    android:paddingRight="-25dp"/>
+                    android:src="@mipmap/ic_6"/>
             </FrameLayout>
             <TextView
                 android:layout_width="match_parent"
@@ -224,8 +218,7 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@mipmap/ic_7"
-                    android:paddingRight="-25dp"/>
+                    android:src="@mipmap/ic_7"/>
             </FrameLayout>
             <TextView
                 android:layout_width="match_parent"
@@ -253,8 +246,7 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@mipmap/ic_8"
-                    android:paddingRight="-25dp"/>
+                    android:src="@mipmap/ic_8"/>
             </FrameLayout>
             <TextView
                 android:layout_width="match_parent"
@@ -281,8 +273,7 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@mipmap/ic_9"
-                    android:paddingRight="-25dp"/>
+                    android:src="@mipmap/ic_9"/>
             </FrameLayout>
             <TextView
                 android:layout_width="match_parent"
