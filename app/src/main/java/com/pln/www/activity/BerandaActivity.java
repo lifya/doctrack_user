@@ -45,7 +45,7 @@ public class BerandaActivity extends AppCompatActivity
         viewPager.setAdapter(viewPagerAdapter);
 
         Timer timer = new Timer();
-        timer.scheduleAtFixedRate(new MyTimerTask(), 2000, 4000);
+        timer.scheduleAtFixedRate(new MyTimerTask(), 4000, 6000);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

@@ -19,7 +19,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.pln.www.R;
-import com.pln.www.fragment.ChatFragment;
+import com.pln.www.fragment.AmdalFragment;
+import com.pln.www.fragment.UklUplFragment;
 
 public class DocumentTrackingActivity extends AppCompatActivity  implements View.OnClickListener {
 
@@ -151,10 +152,10 @@ public class DocumentTrackingActivity extends AppCompatActivity  implements View
             // Return a PlaceholderFragment (defined as a static inner class below).
             switch (position) {
                 case 0 :
-                    ChatFragment amdalFragment = new ChatFragment();
+                    AmdalFragment amdalFragment = new AmdalFragment();
                     return amdalFragment;
                 case 1 :
-                    ChatFragment uklFragment = new ChatFragment();
+                    UklUplFragment uklFragment = new UklUplFragment();
                     return uklFragment;
             }
             return null;

@@ -10,7 +10,7 @@ import android.text.Spanned;
 import android.text.style.ImageSpan;
 
 import com.pln.www.R;
-import com.pln.www.fragment.ChatFragment;
+import com.pln.www.fragment.AmdalFragment;
 
 
 /**
@@ -35,10 +35,10 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position){
             case 0:
-                ChatFragment fragment0=new ChatFragment();
+                AmdalFragment fragment0=new AmdalFragment();
                 return fragment0;
             case 1:
-                ChatFragment fragment1=new ChatFragment();
+                AmdalFragment fragment1=new AmdalFragment();
                 return fragment1;
         }
         return null;
