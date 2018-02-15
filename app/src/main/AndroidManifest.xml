@@ -17,9 +17,9 @@
             </intent-filter>
         </activity>
 
-        <!--<activity-->
-            <!--android:name=".activity.LoginActivity"-->
-            <!--android:theme="@style/AppTheme.NoActionBar" />-->
+        <activity
+            android:name=".activity.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
             android:name=".activity.DocumentTrackingActivity"
@@ -34,7 +34,8 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:label=""/>
 
-        <activity android:name=".activity.DetailProsesActivity" />
+        <activity android:name=".activity.DetailProsesActivity"
+                  android:theme="@style/AppTheme.NoActionBar"/>
 
         <activity
             android:name=".activity.RessetPasswordActivity"

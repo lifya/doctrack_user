@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:layout_marginLeft="10dp"
     android:layout_marginRight="10dp"
-    android:layout_marginTop="10dp"
+    android:layout_marginTop="8dp"
     android:foreground="?attr/selectableItemBackground">
 
         <RelativeLayout
@@ -22,10 +22,11 @@
                     android:layout_alignParentLeft="true"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
-                    android:scaleType="centerCrop"/>
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/on_process"/>
 
                 <TextView
-                    android:id="@+id/judul"
+                    android:id="@+id/tvJudul"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="12dp"
@@ -37,10 +38,10 @@
                     android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/konsultan"
+                    android:id="@+id/tvKonsultan"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/judul"
+                    android:layout_below="@+id/tvJudul"
                     android:paddingTop="3dp"
                     android:layout_marginLeft="12dp"
                     android:layout_toRightOf="@+id/status"
@@ -55,33 +56,20 @@
                     android:id="@+id/tanggal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/konsultan"
+                    android:layout_below="@+id/tvKonsultan"
                     android:layout_marginLeft="12dp"
                     android:layout_toRightOf="@+id/status"
                     android:ellipsize="end"
                     android:singleLine="true"
                     android:text="Tanggal"
                     android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
                     android:textSize="10sp" />
 
                 <TextView
-                    android:id="@+id/waktu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/konsultan"
-                    android:layout_toEndOf="@+id/tanggal"
-                    android:layout_toRightOf="@+id/tanggal"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="2dp"
-                    android:textSize="10sp"
-                    android:layout_marginBottom="5dp"
-                    android:text="Waktu" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/waktu"
-                    android:layout_alignBottom="@+id/waktu"
+                    android:layout_alignBaseline="@+id/tanggal"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_marginEnd="11dp"

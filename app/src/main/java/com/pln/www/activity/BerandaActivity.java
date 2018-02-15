@@ -12,8 +12,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.pln.www.R;
 import com.pln.www.adapter.ViewPageAdapter;
 import com.pln.www.fragment.AboutFragment;
@@ -24,9 +27,13 @@ import java.util.TimerTask;
 
 public class BerandaActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
-    ViewPager viewPager;
-    ImageView imagev1;
-    ImageView imagev2;
+    private ViewPager viewPager;
+    private ImageView imagev1;
+    private ImageView imagev2;
+    private TextView tvName, tvEmail;
+    private long backPressedTime = 0;
+    private FirebaseUser currentUser;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +45,8 @@ public class BerandaActivity extends AppCompatActivity
 
         imagev2 = (ImageView) findViewById(R.id.materi);
         imagev2.setOnClickListener(this);
+
+        mAuth = FirebaseAuth.getInstance();
 
         viewPager = (ViewPager) findViewById(R.id.contain);
 
@@ -58,39 +67,52 @@ public class BerandaActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        tvEmail = (TextView) navigationView.getHeaderView(0).findViewById(R.id.tvEmail);
+        tvName = (TextView) navigationView.getHeaderView(0).findViewById(R.id.tvName);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        currentUser = mAuth.getCurrentUser();
+        String email = currentUser.getEmail();
+        tvEmail.setText(email);
+//        Query query = databaseReference.orderByChild("email").equalTo(email);
+//        query.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                for (DataSnapshot singleSnapshot : dataSnapshot.getChildren()){
+//                    UserModel userModel = singleSnapshot.getValue(UserModel.class);
+//                    String name = userModel.getNama();
+//                    tvName.setText(name);
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//
+//            }
+//        });
     }
 
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        long t = System.currentTimeMillis();
+
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
+        } else if (t - backPressedTime > 2000) {    // 2 secs
+            backPressedTime = t;
+            Toast.makeText(this, "Press back again to exit",
+                    Toast.LENGTH_SHORT).show();
         } else {
             super.onBackPressed();
         }
+
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.beranda, menu);
-//        return true;
-//    }
-
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-//
-//        return super.onOptionsItemSelected(item);
-//    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
