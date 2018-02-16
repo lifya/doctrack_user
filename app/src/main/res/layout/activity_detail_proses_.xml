@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -85,12 +84,12 @@
                         </LinearLayout>
 
                         <TextView
-                            android:id="@+id/tvJenis"
+                            android:id="@+id/tvKontrak"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="#00000000"
                             android:padding="5dp"
-                            android:text="ukl-upl/03/kn02"
+                            android:text="Kontrak"
                             android:textAlignment="center"
                             android:textColor="#77000000"
                             android:textColorHint="#000"
@@ -109,10 +108,10 @@
                             android:id="@+id/tvProvinsi"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Bengkulu"
+                            android:text="Provinsi"
                             android:textAlignment="center"
                             android:textColor="#ededed"
-                            android:textSize="18dp" />
+                            android:textSize="16dp" />
 
                     </LinearLayout>
 
@@ -248,14 +247,6 @@
             </android.support.v7.widget.RecyclerView>
         </LinearLayout>
 
-
-
-
-
-
     </LinearLayout>
-
-
-
 
 </RelativeLayout>

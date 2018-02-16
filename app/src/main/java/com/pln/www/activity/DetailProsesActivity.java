@@ -22,8 +22,7 @@ import com.pln.www.model.PekerjaanModel;
 
 public class DetailProsesActivity extends AppCompatActivity {
     private ImageView ivBack;
-    private Button bAddDoc;
-    private TextView tvSave, tvJudul, tvKonsultan, tvTanggalMulai, tvTanggalAKhir, tvJenis;
+    private TextView tvJudul, tvKonsultan, tvTanggalMulai, tvTanggalAKhir, tvTegangan, tvKms, tvProvinsi, tvKontrak;
     private ProgressDialog progressDialog;
     private DatabaseReference dbKonsultan, dbKontrak, dbPekerjaan;
     private Intent intent;
@@ -42,7 +41,10 @@ public class DetailProsesActivity extends AppCompatActivity {
 
         tvJudul = (TextView) findViewById(R.id.tvJudul);
         tvKonsultan = (TextView) findViewById(R.id.tvKonsultan);
-        tvJenis = (TextView) findViewById(R.id.tvJenis);
+        tvTegangan = (TextView) findViewById(R.id.tvTegangan);
+        tvKms = (TextView) findViewById(R.id.tvKms);
+        tvProvinsi = (TextView) findViewById(R.id.tvProvinsi);
+        tvKontrak = (TextView) findViewById(R.id.tvKontrak);
         tvTanggalMulai = (TextView) findViewById(R.id.tvTanggalMulai);
         tvTanggalAKhir = (TextView) findViewById(R.id.tvTanggalAkhir);
         ivBack = (ImageView) findViewById(R.id.back);
@@ -53,6 +55,7 @@ public class DetailProsesActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
+
     }
 
     @Override
@@ -70,9 +73,14 @@ public class DetailProsesActivity extends AppCompatActivity {
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     PekerjaanModel pekerjaanModel = dataSnapshot.getValue(PekerjaanModel.class);
                     String namaPekerjaan = pekerjaanModel.getNamaPekerjaan();
-                    String jenisPekerjaan = pekerjaanModel.getJenisPekerjaan();
+                    String tegangan = pekerjaanModel.getTegangan();
+                    String kms = pekerjaanModel.getKms();
+                    String provinsi = pekerjaanModel.getProvinsi();
                     tvJudul.setText(namaPekerjaan);
-                    tvJenis.setText(jenisPekerjaan);
+                    tvTegangan.setText(tegangan);
+                    tvKms.setText(kms);
+                    tvProvinsi.setText(provinsi);
+
                 }
 
                 @Override
@@ -99,8 +107,10 @@ public class DetailProsesActivity extends AppCompatActivity {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     KontrakModel kontrakModel = dataSnapshot.getValue(KontrakModel.class);
+                    String noKontrak = kontrakModel.getNoKontrak();
                     String tglMulai = kontrakModel.getTglMulai();
                     String tglAkhir = kontrakModel.getTglAkhir();
+                    tvKontrak.setText(noKontrak);
                     tvTanggalMulai.setText(tglMulai);
                     tvTanggalAKhir.setText(tglAkhir);
                 }

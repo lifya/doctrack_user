@@ -73,26 +73,16 @@ public class AmdalFragment extends Fragment {
                 final String id_Konsultan = model.getIdKonsultan();
                 final String id_Kontrak = model.getIdKontrak();
                 viewHolder.setNamaPekerjaan(model.getNamaPekerjaan());
-                dbPekerjaan.child("Konsultan").child(id_Konsultan).addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        KonsultanModel konsultanModel = dataSnapshot.getValue(KonsultanModel.class);
-                        String namaKonsultan = konsultanModel.getNamaKonsultan();
-                        viewHolder.setNamaKonsultan(namaKonsultan);
-                    }
+                viewHolder.setTegangan(model.getTegangan());
+                viewHolder.setKms(model.getKms());
+                viewHolder.setProvinsi(model.getProvinsi());
 
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        Toast.makeText(getActivity(), "Failed to Get Consultant ID", Toast.LENGTH_LONG).show();
-                        return;
-                    }
-                });
                 dbPekerjaan.child("Kontrak").child(id_Kontrak).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         KontrakModel kontrakModel = dataSnapshot.getValue(KontrakModel.class);
-                        String tanggalKontrak = kontrakModel.getTglMulai();
-                        viewHolder.setTanggal(tanggalKontrak);
+                        String noKontrak = kontrakModel.getNoKontrak();
+                        viewHolder.setNoKontrak(noKontrak);
                     }
 
                     @Override
@@ -116,6 +106,7 @@ public class AmdalFragment extends Fragment {
                     public void onItemLongClick(View view, int position) {
 
                     }
+
 
                 });
 
@@ -149,11 +140,6 @@ public class AmdalFragment extends Fragment {
         return rootView;
     }
 
-    /**
-     * Set RecyclerView's LayoutManager to the one given.
-     *
-     * @param layoutManagerType Type of layout manager to switch to.
-     */
     public void setRecyclerViewLayoutManager(LayoutManagerType layoutManagerType) {
         int scrollPosition = 0;
 

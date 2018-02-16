@@ -1,5 +1,7 @@
 package com.pln.www.fragment;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -58,7 +60,7 @@ public class UklUplFragment extends Fragment {
                 PekerjaanModel.class,
                 R.layout.list_view,
                 PekerjaanModelViewHolder.class,
-                dbPekerjaan.child("Pekerjaan").child("jenisPekerjaan").equalTo("AMDAL")
+                dbPekerjaan.child("Pekerjaan")
         ) {
             @Override
             protected void populateViewHolder(final PekerjaanModelViewHolder viewHolder, final PekerjaanModel model, int position) {
@@ -66,26 +68,16 @@ public class UklUplFragment extends Fragment {
                 final String id_Konsultan = model.getIdKonsultan();
                 final String id_Kontrak = model.getIdKontrak();
                 viewHolder.setNamaPekerjaan(model.getNamaPekerjaan());
-                dbPekerjaan.child("Konsultan").child(id_Konsultan).addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        KonsultanModel konsultanModel = dataSnapshot.getValue(KonsultanModel.class);
-                        String namaKonsultan = konsultanModel.getNamaKonsultan();
-                        viewHolder.setNamaKonsultan(namaKonsultan);
-                    }
+                viewHolder.setTegangan(model.getTegangan());
+                viewHolder.setKms(model.getKms());
+                viewHolder.setProvinsi(model.getProvinsi());
 
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        Toast.makeText(getActivity(), "Failed to Get Consultant ID", Toast.LENGTH_LONG).show();
-                        return;
-                    }
-                });
                 dbPekerjaan.child("Kontrak").child(id_Kontrak).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         KontrakModel kontrakModel = dataSnapshot.getValue(KontrakModel.class);
-                        String tanggalKontrak = kontrakModel.getTglMulai();
-                        viewHolder.setTanggal(tanggalKontrak);
+                        String noKontrak = kontrakModel.getNoKontrak();
+                        viewHolder.setNoKontrak(noKontrak);
                     }
 
                     @Override
@@ -106,10 +98,30 @@ public class UklUplFragment extends Fragment {
                     }
 
                     @Override
-                    public void onItemLongClick(View view, int position) {
+                    public void onItemLongClick(View view, final int position) {
+                        final AlertDialog.Builder alertDelete = new AlertDialog.Builder(getActivity());
+                        alertDelete.setMessage("Are you sure want to delete this document ?").setCancelable(false)
+                                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        int selectedItem = position;
+                                        firebaseRecyclerAdapter.getRef(selectedItem).removeValue();
+                                        firebaseRecyclerAdapter.notifyItemRemoved(selectedItem);
+                                        mRecyclerView.invalidate();
+                                        onStart();
+                                    }
 
+                                })
+                                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.cancel();
+                                    }
+                                });
+                        AlertDialog alert = alertDelete.create();
+                        alert.setTitle("Warning");
+                        alert.show();
                     }
-
                 });
 
             }

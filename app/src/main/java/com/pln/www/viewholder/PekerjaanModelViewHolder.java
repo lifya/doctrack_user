@@ -6,24 +6,28 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.pln.www.R;
+import com.pln.www.model.PekerjaanModel;
+
+import org.w3c.dom.Text;
 
 /**
- * Created by ACHI on 13/02/2018.
+ * Created by User on 18/01/2018.
  */
 
 public class PekerjaanModelViewHolder extends RecyclerView.ViewHolder {
-
     private PekerjaanModelViewHolder.ClickListener mClickListener;
-    public TextView tvNamaPekerjaan, tvNamaKonsultan, tvTanggal, tvWaktu, tvLastUpdate;
-    public ImageView ivStatus, ivHapus;
+    public TextView tvNamaPekerjaan, tvTegangan, tvKms, tvNoKontrak, tvProvinsi, tvLastUpdate;
+    public ImageView ivStatus;
     public View mView;
 
     public PekerjaanModelViewHolder(View itemView) {
         super(itemView);
         mView = itemView;
         tvNamaPekerjaan = (TextView) mView.findViewById(R.id.tvJudul);
-        tvNamaKonsultan = (TextView) mView.findViewById(R.id.tvKonsultan);
-        tvTanggal = (TextView) mView.findViewById(R.id.tanggal);
+        tvTegangan = (TextView) mView.findViewById(R.id.tvTegangan);
+        tvKms = (TextView) mView.findViewById(R.id.tvKms);
+        tvNoKontrak = (TextView) mView.findViewById(R.id.tvKontrak);
+        tvProvinsi = (TextView) mView.findViewById(R.id.tvProvinsi);
 
         mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,17 +55,21 @@ public class PekerjaanModelViewHolder extends RecyclerView.ViewHolder {
         mClickListener = clickListener;
     }
 
-    public void setNamaPekerjaan(String namaPekerjaan){
+    public void setNamaPekerjaan(String namaPekerjaan) {
         tvNamaPekerjaan.setText(namaPekerjaan);
     }
 
-    public void setNamaKonsultan (String namaKonsultan){
-        tvNamaKonsultan.setText(namaKonsultan);
+    public void setTegangan(String tegangan) {
+        tvTegangan.setText(tegangan);
     }
 
-    public void setTanggal(String tanggal){
-        tvTanggal.setText(tanggal);
+    public void setKms(String kms) { tvKms.setText(kms); }
+
+    public void setNoKontrak(String noKontrak) {
+        tvNoKontrak.setText(noKontrak);
     }
 
-
+    public void setProvinsi(String provinsi) {
+        tvProvinsi.setText(provinsi);
+    }
 }
