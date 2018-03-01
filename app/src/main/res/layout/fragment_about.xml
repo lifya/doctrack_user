@@ -29,4 +29,27 @@
         android:layout_marginBottom="12dp"
         android:src="@mipmap/logo" />
 
+    <ImageView
+        android:id="@+id/logounsri"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_alignEnd="@+id/about"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/about"
+        android:layout_marginBottom="22dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:src="@mipmap/unsri" />
+
+    <ImageView
+        android:id="@+id/logodoc"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_alignLeft="@+id/about"
+        android:layout_alignStart="@+id/about"
+        android:layout_alignTop="@+id/logounsri"
+        android:layout_marginLeft="21dp"
+        android:layout_marginStart="21dp"
+        android:src="@mipmap/pln" />
+
 </RelativeLayout>

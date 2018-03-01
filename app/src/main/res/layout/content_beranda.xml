@@ -47,8 +47,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
-                android:background="#ffff"
+                android:background="#d1dadc"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -83,7 +82,7 @@
                             android:layout_marginTop="15dp"
                             android:text="DocTrack"
                             android:textColor="@color/cardview_dark_background"
-                            android:textSize="20dp" />
+                            android:textSize="14dp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -120,7 +119,7 @@
                             android:layout_marginTop="28dp"
                             android:text="Materi"
                             android:textColor="@color/cardview_dark_background"
-                            android:textSize="20dp" />
+                            android:textSize="14dp" />
                     </LinearLayout>
 
                 </LinearLayout>

@@ -65,7 +65,7 @@ public class AmdalFragment extends Fragment {
                 PekerjaanModel.class,
                 R.layout.list_view,
                 PekerjaanModelViewHolder.class,
-                dbPekerjaan.child("Pekerjaan")
+                dbPekerjaan.child("Pekerjaan").orderByChild("jenisPekerjaan").equalTo("AMDAL")
         ) {
             @Override
             protected void populateViewHolder(final PekerjaanModelViewHolder viewHolder, final PekerjaanModel model, int position) {

@@ -9,11 +9,10 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="380dp"
-        android:layout_height="235dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        app:srcCompat="@mipmap/ic_launcher"
         />
 </RelativeLayout>

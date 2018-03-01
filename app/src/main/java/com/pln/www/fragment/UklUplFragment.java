@@ -60,7 +60,7 @@ public class UklUplFragment extends Fragment {
                 PekerjaanModel.class,
                 R.layout.list_view,
                 PekerjaanModelViewHolder.class,
-                dbPekerjaan.child("Pekerjaan")
+                dbPekerjaan.child("Pekerjaan").orderByChild("jenisPekerjaan").equalTo("UKL-UPL")
         ) {
             @Override
             protected void populateViewHolder(final PekerjaanModelViewHolder viewHolder, final PekerjaanModel model, int position) {
@@ -99,28 +99,28 @@ public class UklUplFragment extends Fragment {
 
                     @Override
                     public void onItemLongClick(View view, final int position) {
-                        final AlertDialog.Builder alertDelete = new AlertDialog.Builder(getActivity());
-                        alertDelete.setMessage("Are you sure want to delete this document ?").setCancelable(false)
-                                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        int selectedItem = position;
-                                        firebaseRecyclerAdapter.getRef(selectedItem).removeValue();
-                                        firebaseRecyclerAdapter.notifyItemRemoved(selectedItem);
-                                        mRecyclerView.invalidate();
-                                        onStart();
-                                    }
-
-                                })
-                                .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        dialog.cancel();
-                                    }
-                                });
-                        AlertDialog alert = alertDelete.create();
-                        alert.setTitle("Warning");
-                        alert.show();
+//                        final AlertDialog.Builder alertDelete = new AlertDialog.Builder(getActivity());
+//                        alertDelete.setMessage("Are you sure want to delete this document ?").setCancelable(false)
+//                                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+//                                    @Override
+//                                    public void onClick(DialogInterface dialog, int which) {
+//                                        int selectedItem = position;
+//                                        firebaseRecyclerAdapter.getRef(selectedItem).removeValue();
+//                                        firebaseRecyclerAdapter.notifyItemRemoved(selectedItem);
+//                                        mRecyclerView.invalidate();
+//                                        onStart();
+//                                    }
+//
+//                                })
+//                                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+//                                    @Override
+//                                    public void onClick(DialogInterface dialog, int which) {
+//                                        dialog.cancel();
+//                                    }
+//                                });
+//                        AlertDialog alert = alertDelete.create();
+//                        alert.setTitle("Warning");
+//                        alert.show();
                     }
                 });
 
