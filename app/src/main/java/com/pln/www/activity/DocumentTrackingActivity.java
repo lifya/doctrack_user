@@ -37,11 +37,10 @@ public class DocumentTrackingActivity extends AppCompatActivity  implements View
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
-    ImageView image1;
-    ImageView searchdoc;
+    private ImageView image1;
     private DatabaseReference mItemDatabase;
     private RecyclerView mResultList;
-    private EditText searchField;
+    private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,17 +49,10 @@ public class DocumentTrackingActivity extends AppCompatActivity  implements View
 
         image1 = (ImageView) findViewById(R.id.back);
         image1.setOnClickListener(this);
-        mItemDatabase = FirebaseDatabase.getInstance().getReference("Pekerjaan");
-        searchField = (EditText) findViewById(R.id.searchEdit);
-        searchdoc = (ImageView) findViewById(R.id.searchdoc);
-        searchdoc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-                String editSearch = searchField.getText().toString();
-                firebaseUserSearch(editSearch);
-            }
-        });
+        textView = (TextView) findViewById(R.id.daftarPekerjaan);
+
+        mItemDatabase = FirebaseDatabase.getInstance().getReference("Pekerjaan");
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
