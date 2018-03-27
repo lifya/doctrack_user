@@ -36,7 +36,6 @@ public class UklUplFragment extends Fragment {
     private static final String TAG = "RecyclerViewFragment";
     private static final String KEY_LAYOUT_MANAGER = "layoutManager";
     private static final int SPAN_COUNT = 2;
-    private static final int DATASET_COUNT = 60; // menampilkan data sebanyak value
     protected UklUplFragment.LayoutManagerType mCurrentLayoutManagerType;
     protected RecyclerView mRecyclerView;
     protected RecyclerView.LayoutManager mLayoutManager;
@@ -99,41 +98,16 @@ public class UklUplFragment extends Fragment {
                 @Override
                 public void onItemClick(View view, int position) {
                     Intent intent = new Intent(getActivity(), DetailProsesActivity.class);
-                    //                        Bundle bundle = new Bundle();
-//                        bundle.putString("id_pekerjaan", id_Pekerjaan);
-//                        bundle.putString("id_konsultan", id_Konsultan);
-//                        bundle.putString("id_kontrak", id_Kontrak);
                     intent.putExtra("id_pekerjaan", id_Pekerjaan);
                     intent.putExtra("id_konsultan", id_Konsultan);
                     intent.putExtra("id_kontrak", id_Kontrak);
-//                        intent.putExtra("Key2", bundle);
                     startActivity(intent);
                 }
 
                 @Override
                 public void onItemLongClick(View view, int position) {
                     final AlertDialog.Builder alertDelete = new AlertDialog.Builder(getActivity());
-//                    alertDelete.setMessage("Are you sure want to delete this document ?").setCancelable(false)
-//                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-//                                @Override
-//                                public void onClick(DialogInterface dialog, int which) {
-//                                    int selectedItem = position;
-//                                    firebaseRecyclerAdapter.getRef(selectedItem).removeValue();
-//                                    firebaseRecyclerAdapter.notifyItemRemoved(selectedItem);
-//                                    mRecyclerView.invalidate();
-//                                    onStart();
-//                                }
-//
-//                            })
-//                            .setNegativeButton("No", new DialogInterface.OnClickListener() {
-//                                @Override
-//                                public void onClick(DialogInterface dialog, int which) {
-//                                    dialog.cancel();
-//                                }
-//                            });
-//                    AlertDialog alert = alertDelete.create();
-//                    alert.setTitle("Warning");
-//                    alert.show();
+
                 }
             });
         }
@@ -148,82 +122,6 @@ public class UklUplFragment extends Fragment {
         }
     }
 
-//    @Override
-//    public void onStart() {
-//        super.onStart();
-//
-//        firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<PekerjaanModel, PekerjaanModelViewHolder>(
-//                PekerjaanModel.class,
-//                R.layout.list_view,
-//                PekerjaanModelViewHolder.class,
-//                dbPekerjaan.child("Pekerjaan").orderByChild("jenisPekerjaan").equalTo("UKL-UPL")
-//        ) {
-//            @Override
-//            protected void populateViewHolder(final PekerjaanModelViewHolder viewHolder, final PekerjaanModel model, int position) {
-//                final String id_Pekerjaan = this.getRef(position).getKey();
-//                final String id_Konsultan = model.getIdKonsultan();
-//                final String id_Kontrak = model.getIdKontrak();
-//                viewHolder.setNamaPekerjaan(model.getNamaPekerjaan());
-//                viewHolder.setTegangan(model.getTegangan());
-//                viewHolder.setKms(model.getKms());
-//                viewHolder.setProvinsi(model.getProvinsi());
-//
-//                dbPekerjaan.child("Kontrak").child(id_Kontrak).addListenerForSingleValueEvent(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(DataSnapshot dataSnapshot) {
-//                        KontrakModel kontrakModel = dataSnapshot.getValue(KontrakModel.class);
-//                        String noKontrak = kontrakModel.getNoKontrak();
-//                        viewHolder.setNoKontrak(noKontrak);
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(DatabaseError databaseError) {
-//                        Toast.makeText(getActivity(), "Failed to Get Contract ID", Toast.LENGTH_LONG).show();
-//                        return;
-//                    }
-//                });
-//
-//                viewHolder.setOnClickListener(new PekerjaanModelViewHolder.ClickListener() {
-//                    @Override
-//                    public void onItemClick(View view, int position) {
-//                        Intent intent = new Intent(getActivity(), DetailProsesActivity.class);
-//                        intent.putExtra("id_pekerjaan", id_Pekerjaan);
-//                        intent.putExtra("id_konsultan", id_Konsultan);
-//                        intent.putExtra("id_kontrak", id_Kontrak);
-//                        startActivity(intent);
-//                    }
-//
-//                    @Override
-//                    public void onItemLongClick(View view, final int position) {
-////                        final AlertDialog.Builder alertDelete = new AlertDialog.Builder(getActivity());
-////                        alertDelete.setMessage("Are you sure want to delete this document ?").setCancelable(false)
-////                                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-////                                    @Override
-////                                    public void onClick(DialogInterface dialog, int which) {
-////                                        int selectedItem = position;
-////                                        firebaseRecyclerAdapter.getRef(selectedItem).removeValue();
-////                                        firebaseRecyclerAdapter.notifyItemRemoved(selectedItem);
-////                                        mRecyclerView.invalidate();
-////                                        onStart();
-////                                    }
-////
-////                                })
-////                                .setNegativeButton("No", new DialogInterface.OnClickListener() {
-////                                    @Override
-////                                    public void onClick(DialogInterface dialog, int which) {
-////                                        dialog.cancel();
-////                                    }
-////                                });
-////                        AlertDialog alert = alertDelete.create();
-////                        alert.setTitle("Warning");
-////                        alert.show();
-//                    }
-//                });
-//
-//            }
-//        };
-//        mRecyclerView.setAdapter(firebaseRecyclerAdapter);
-//    }
 
 
     @Override
@@ -282,7 +180,7 @@ public class UklUplFragment extends Fragment {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 listPekerjaan = new ArrayList<>();
                 for (DataSnapshot pekerjaanSnapshot : dataSnapshot.getChildren()) {
-                    if (pekerjaanSnapshot.child("jenisPekerjaan").getValue().toString().equals("AMDAL")) {
+                    if (pekerjaanSnapshot.child("jenisPekerjaan").getValue().toString().equals("UKL-UPL")) {
                         PekerjaanModel pekerjaanModel = pekerjaanSnapshot.getValue(PekerjaanModel.class);
                         listPekerjaan.add(pekerjaanModel);
 

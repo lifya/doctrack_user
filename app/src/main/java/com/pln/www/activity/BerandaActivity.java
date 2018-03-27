@@ -69,7 +69,7 @@ public class BerandaActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         tvEmail = (TextView) navigationView.getHeaderView(0).findViewById(R.id.tvEmail);
-        tvName = (TextView) navigationView.getHeaderView(0).findViewById(R.id.tvName);
+        //tvName = (TextView) navigationView.getHeaderView(0).findViewById(R.id.tvName);
     }
 
     @Override

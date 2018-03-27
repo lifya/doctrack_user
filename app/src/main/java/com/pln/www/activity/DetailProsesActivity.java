@@ -4,7 +4,11 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,17 +20,27 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.pln.www.R;
+import com.pln.www.model.DetailProsesModel;
 import com.pln.www.model.KonsultanModel;
 import com.pln.www.model.KontrakModel;
 import com.pln.www.model.PekerjaanModel;
+import com.pln.www.viewholder.DetailProsesModelViewHolder;
+
+import java.util.ArrayList;
 
 public class DetailProsesActivity extends AppCompatActivity {
     private ImageView ivBack;
     private TextView tvJudul, tvKonsultan, tvTanggalMulai, tvTanggalAKhir, tvTegangan, tvKms, tvProvinsi, tvKontrak;
     private ProgressDialog progressDialog;
-    private DatabaseReference dbKonsultan, dbKontrak, dbPekerjaan;
+    private DatabaseReference dbKonsultan, dbKontrak, dbPekerjaan, dbDetailProses, dbUploadFile;
     private Intent intent;
     private Bundle bundle;
+    private String get_idPekerjaan, get_idKonsultan, get_idKontrak;
+    private ArrayList<DetailProsesModel> listProses;
+    private DetailProsesActivity.RecycleAdapterProses adapterProses;
+
+    protected RecyclerView mRecyclerView;
+    protected RecyclerView.LayoutManager mLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +48,23 @@ public class DetailProsesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail_proses_);
         intent = getIntent();
         bundle = intent.getExtras();
+        if(bundle != null){
+            get_idPekerjaan = (String) bundle.get("id_pekerjaan");
+            get_idKonsultan = (String) bundle.get("id_konsultan");
+            get_idKontrak = (String) bundle.get("id_kontrak");
+        }
+
+        mRecyclerView = (RecyclerView) findViewById(R.id.rvDetailProses);
+
+        mLayoutManager = new LinearLayoutManager(DetailProsesActivity.this);
+
+        mRecyclerView.setLayoutManager(mLayoutManager);
 
         dbKonsultan = FirebaseDatabase.getInstance().getReference("Konsultan");
         dbKontrak = FirebaseDatabase.getInstance().getReference("Kontrak");
         dbPekerjaan = FirebaseDatabase.getInstance().getReference("Pekerjaan");
+        dbDetailProses = FirebaseDatabase.getInstance().getReference("DetailProses");
+        dbUploadFile = FirebaseDatabase.getInstance().getReference("Uploads");
 
         tvJudul = (TextView) findViewById(R.id.tvJudul);
         tvKonsultan = (TextView) findViewById(R.id.tvKonsultan);
@@ -55,6 +82,9 @@ public class DetailProsesActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
+
+        initialize();
+
 
     }
 
@@ -122,6 +152,68 @@ public class DetailProsesActivity extends AppCompatActivity {
                 }
             });
         }
+    }
+
+    public class RecycleAdapterProses extends RecyclerView.Adapter<DetailProsesModelViewHolder> {
+
+        ArrayList<DetailProsesModel> dataProses = new ArrayList<>();
+
+        public RecycleAdapterProses(ArrayList<DetailProsesModel> list) {
+            dataProses = list;
+        }
+
+        @Override
+        public DetailProsesModelViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_proses, parent, false);
+
+            return new DetailProsesModelViewHolder(view);
+        }
+
+        @Override
+        public void onBindViewHolder(final DetailProsesModelViewHolder holder, int position) {
+            final String id_Pekerjaan = dataProses.get(position).getIdPekerjaan();
+            final String id_file = dataProses.get(position).getIdFile();
+            holder.setTvFIleProses(dataProses.get(position).getNamaFile());
+            holder.setNamaProses(dataProses.get(position).getNamaProses());
+            holder.setStatusProses(dataProses.get(position).getStatus());
+            holder.setTanggalProses(dataProses.get(position).getTanggal());
+            holder.setKeteranganProses(dataProses.get(position).getKeterangan());
+
+        }
+
+        @Override
+        public int getItemCount() {
+            return dataProses.size();
+        }
+
+    }
+
+    public void initialize(){
+        listProses = new ArrayList<>();
+        dbDetailProses.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                listProses = new ArrayList<>();
+                for(DataSnapshot detailProsesSnapshot : dataSnapshot.getChildren()){
+                    String id = detailProsesSnapshot.getKey();
+
+                    if(id.equals(get_idPekerjaan)){
+                        for(DataSnapshot namaProses : detailProsesSnapshot.getChildren()) {
+                            DetailProsesModel detailProsesModel = namaProses.getValue(DetailProsesModel.class);
+                            listProses.add(detailProsesModel);
+                        }
+                    }
+                }
+
+                adapterProses = new RecycleAdapterProses(listProses);
+                mRecyclerView.setAdapter(adapterProses);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
 }

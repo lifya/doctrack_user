@@ -44,7 +44,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#8b5eb7e1"
+                android:background="#FF134E74"
                 android:padding="10dp"
                 android:text="Permohonan RT/RW"
                 android:textSize="14dp"
@@ -77,7 +77,7 @@
                 android:textSize="14dp"
                 android:textStyle="bold"
                 android:textColorHint="#ffff"
-                android:textColor="#ffffff"
+                android:textColor="#FF134E74"
                 android:singleLine="true"/>
 
         </LinearLayout>
@@ -98,7 +98,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#8b5eb7e1"
+                android:background="#FF134E74"
                 android:padding="10dp"
                 android:text="Izin RT/RW keluar"
                 android:textSize="14dp"
@@ -145,7 +145,7 @@
                 android:textSize="14dp"
                 android:textStyle="bold"
                 android:textColorHint="#ffff"
-                android:textColor="#ffffff"
+                android:textColor="#FF134E74"
                 android:singleLine="true"/>
 
         </LinearLayout>
@@ -167,7 +167,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#8b5eb7e1"
+                android:background="#FF134E74"
                 android:padding="10dp"
                 android:text="Pembahasan"
                 android:textSize="14dp"
@@ -201,7 +201,7 @@
                 android:textSize="14dp"
                 android:textStyle="bold"
                 android:textColorHint="#ffff"
-                android:textColor="#ffffff"
+                android:textColor="#FF134E74"
                 android:singleLine="true"/>
 
         </LinearLayout>
@@ -223,7 +223,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#8b5eb7e1"
+                android:background="#FF134E74"
                 android:padding="10dp"
                 android:text="Dokumen Final"
                 android:textSize="14dp"
@@ -257,7 +257,7 @@
                 android:textSize="14dp"
                 android:textStyle="bold"
                 android:textColorHint="#ffff"
-                android:textColor="#ffffff"
+                android:textColor="#FF134E74"
                 android:singleLine="true"/>
 
         </LinearLayout>
@@ -278,7 +278,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#8b5eb7e1"
+                android:background="#FF134E74"
                 android:padding="10dp"
                 android:text="Izin Lingkungan"
                 android:textSize="14dp"

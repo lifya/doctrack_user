@@ -45,9 +45,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#8b5eb7e1"
+                android:background="#FF134E74"
                 android:padding="10dp"
-                android:text="Permohonan RT/RW"
+                android:text="Permohonan RTRW"
                 android:textSize="14dp"
                 android:textStyle="bold"
                 android:textColorHint="#ffff"
@@ -74,11 +74,11 @@
                 android:layout_height="match_parent"
                 android:background="#8b5eb7e1"
                 android:padding="10dp"
-                android:text="Pembahasan RT/RW"
+                android:text="Pembahasan RTRW"
                 android:textSize="14dp"
                 android:textStyle="bold"
                 android:textColorHint="#ffff"
-                android:textColor="#ffffff"
+                android:textColor="#FF134E74"
                 android:singleLine="true"/>
 
         </LinearLayout>
@@ -99,9 +99,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#8b5eb7e1"
+                android:background="#FF134E74"
                 android:padding="10dp"
-                android:text="Izin RT/RW keluar"
+                android:text="Izin RTRW keluar"
                 android:textSize="14dp"
                 android:textStyle="bold"
                 android:textColorHint="#ffff"
@@ -146,7 +146,7 @@
                 android:textSize="14dp"
                 android:textStyle="bold"
                 android:textColorHint="#ffff"
-                android:textColor="#ffffff"
+                android:textColor="#FF134E74"
                 android:singleLine="true"/>
 
         </LinearLayout>
@@ -168,7 +168,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#8b5eb7e1"
+                android:background="#FF134E74"
                 android:padding="10dp"
                 android:text="Draft Kerangka Acuan AMDAL"
                 android:textSize="14dp"
@@ -202,7 +202,7 @@
                 android:textSize="14dp"
                 android:textStyle="bold"
                 android:textColorHint="#ffff"
-                android:textColor="#ffffff"
+                android:textColor="#FF134E74"
                 android:singleLine="true"/>
 
         </LinearLayout>
@@ -224,7 +224,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#8b5eb7e1"
+                android:background="#FF134E74"
                 android:padding="10dp"
                 android:text="Perbaikan dan Persetujuan Kerangka Acuan"
                 android:textSize="14dp"
@@ -258,7 +258,7 @@
                 android:textSize="14dp"
                 android:textStyle="bold"
                 android:textColorHint="#ffff"
-                android:textColor="#ffffff"
+                android:textColor="#FF134E74"
                 android:singleLine="true"/>
 
         </LinearLayout>
@@ -279,7 +279,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#8b5eb7e1"
+                android:background="#FF134E74"
                 android:padding="10dp"
                 android:text="Pembahasan AMDAL dan RKL-RPL"
                 android:textSize="14dp"
@@ -314,7 +314,7 @@
                 android:textSize="14dp"
                 android:textStyle="bold"
                 android:textColorHint="#ffff"
-                android:textColor="#ffffff"
+                android:textColor="#FF134E74"
                 android:singleLine="true"/>
 
         </LinearLayout>
@@ -336,7 +336,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#8b5eb7e1"
+                android:background="#FF134E74"
                 android:padding="10dp"
                 android:text="Izin Lingkungan"
                 android:textSize="14dp"
