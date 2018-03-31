@@ -1,7 +1,11 @@
 package com.pln.www.activity;
 
+import android.app.DownloadManager;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -38,6 +42,7 @@ public class DetailProsesActivity extends AppCompatActivity {
     private String get_idPekerjaan, get_idKonsultan, get_idKontrak;
     private ArrayList<DetailProsesModel> listProses;
     private DetailProsesActivity.RecycleAdapterProses adapterProses;
+    private DownloadManager downloadManager;
 
     protected RecyclerView mRecyclerView;
     protected RecyclerView.LayoutManager mLayoutManager;
@@ -170,7 +175,7 @@ public class DetailProsesActivity extends AppCompatActivity {
         }
 
         @Override
-        public void onBindViewHolder(final DetailProsesModelViewHolder holder, int position) {
+        public void onBindViewHolder(final DetailProsesModelViewHolder holder, final int position) {
             final String id_Pekerjaan = dataProses.get(position).getIdPekerjaan();
             final String id_file = dataProses.get(position).getIdFile();
             holder.setTvFIleProses(dataProses.get(position).getNamaFile());
@@ -179,7 +184,22 @@ public class DetailProsesActivity extends AppCompatActivity {
             holder.setTanggalProses(dataProses.get(position).getTanggal());
             holder.setKeteranganProses(dataProses.get(position).getKeterangan());
 
-        }
+            holder.getTvFIleProses(dataProses.get(position).getNamaFile()).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    downloadManager = (DownloadManager)getSystemService(Context.DOWNLOAD_SERVICE);
+                    Uri uri = Uri.parse(dataProses.get(position).getUriFile());
+
+                    DownloadManager.Request request = new DownloadManager.Request(uri);
+                    request.setDescription("Download Completed").setTitle(dataProses.get(position).getNamaFile());
+                    request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, dataProses.get(position).getNamaFile());
+                    request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+                    Long reference = downloadManager.enqueue(request);
+                }
+            });
+
+
+                }
 
         @Override
         public int getItemCount() {
