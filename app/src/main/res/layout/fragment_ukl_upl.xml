@@ -14,7 +14,7 @@
             android:id="@+id/searchView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:queryHint="Nama Pekerjaan"
+            app:queryHint="nama pekerjaan"
             android:background="@drawable/ic_menu_gallery"
             android:layout_margin="10dp">
 

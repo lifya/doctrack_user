@@ -14,8 +14,8 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.pln.www.R;
-import com.pln.www.fragment.Materi2Fragment;
-import com.pln.www.fragment.MateriFragment;
+import com.pln.www.fragment.MateriAmdalFragment;
+import com.pln.www.fragment.MateriUklUplFragment;
 
 
 public class MateriActivity extends AppCompatActivity implements View.OnClickListener{
@@ -92,7 +92,7 @@ public class MateriActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     public void sentoHome () {
-        Intent startIntent = new Intent(MateriActivity.this, BerandaActivity.class);
+        Intent startIntent = new Intent(MateriActivity.this, MainActivity.class);
         startActivity(startIntent);
         finish();
     }
@@ -100,7 +100,7 @@ public class MateriActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View view) {
         if (image1 == view) {
-            BerandaActivity home = new BerandaActivity();
+            MainActivity home = new MainActivity();
             sentoHome();
         }
     }
@@ -148,10 +148,10 @@ public class MateriActivity extends AppCompatActivity implements View.OnClickLis
             // Return a PlaceholderFragment (defined as a static inner class below).
             switch (position) {
                 case 0 :
-                    Materi2Fragment amdalFragment = new Materi2Fragment();
+                    MateriAmdalFragment amdalFragment = new MateriAmdalFragment();
                     return amdalFragment;
                 case 1 :
-                    MateriFragment uklFragment = new MateriFragment();
+                    MateriUklUplFragment uklFragment = new MateriUklUplFragment();
                     return uklFragment;
             }
             return null;

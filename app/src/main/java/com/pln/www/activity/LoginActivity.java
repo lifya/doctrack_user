@@ -66,7 +66,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     public void sendtoStart(){
-        Intent startIntent = new Intent(LoginActivity.this, BerandaActivity.class);
+        Intent startIntent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(startIntent);
         finish();
     }
@@ -114,7 +114,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                                 progressDialog.dismiss();
                                                 if(task.isSuccessful()){
                                                     finish();
-                                                    startActivity(new Intent(getApplicationContext(), BerandaActivity.class));
+                                                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
                                                 }
                                                 else{
                                                     Toast.makeText(LoginActivity.this, "Failed ! Check Your Email or Password", Toast.LENGTH_LONG).show();
